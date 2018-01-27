@@ -10,7 +10,6 @@
 
 ## Usage with Docker
 
-
 ```
 docker run -d \
 	--name gitlab-share-project-hook \

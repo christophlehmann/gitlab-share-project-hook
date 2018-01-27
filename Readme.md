@@ -1,6 +1,4 @@
-# Node server: Gitlab system hook
-
-* Share newly created project with a default group
+# Gitlab webhook: Share new projects with a default group
 
 ## Environment variables
 
@@ -10,13 +8,25 @@
 * `DEFAULT_ACCESS_LEVEL`: 40
 * `LISTEN_PORT`: 3002
 
-## Prerequisites
+## Usage with Docker
 
-* Node.js (https://nodejs.org)
-* yarn (https://yarnpkg.com)
 
-## Usage
+```
+docker run -d \
+	--name gitlab-share-project-hook \
+	--restart=always \
+	-e URL=https://your.gitlab.domain \
+	-e ACCESS_TOKEN=GitlabAccessToken \
+	-e DEFAULT_GROUP=team-members \
+	-e DEFAULT_ACCESS_LEVEL=40 \
+	-e LISTEN_PORT=3002 \
+	-p 3002:3002 \
+	lemming/gitlab-share-project-hook
+```
 
+## Usage without Docker
+
+* Make sure you have node (https://nodejs.org) and yarn (https://yarnpkg.com)
 * `yarn install`
 * Set environment variables
 * `node app.js`

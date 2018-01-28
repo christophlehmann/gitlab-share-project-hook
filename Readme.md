@@ -35,3 +35,7 @@ docker run -d \
 ## Todo
 
 * Implement verification of secret token
+
+## Repository
+
+https://github.com/christophlehmann/gitlab-share-project-hook
